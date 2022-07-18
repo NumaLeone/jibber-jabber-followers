@@ -30,8 +30,12 @@ public class FollowController {
     public void unfollowUser(@RequestBody Follow follow){
         followService.unfollowUser(follow);
     }
-    @GetMapping(path = "/{followee}")
+    @GetMapping(path = "followee/{followee}")
     public List<String> getAllFollowersByFollowee(@PathVariable("followee") String followee){
      return followService.allFollowersByFollowee(followee);
+    }
+    @GetMapping(path = "follower/{follower}")
+    public List<String> getAllFolloweeByFollower(@PathVariable("follower") String follower){
+        return followService.allFolloweeByFollowers(follower);
     }
 }

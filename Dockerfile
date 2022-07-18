@@ -3,4 +3,4 @@ COPY . /home/gradle/src
 WORKDIR /home/gradle/src
 RUN gradle build
 EXPOSE 8080
-ENTRYPOINT ["java","-jar","/home/gradle/src/build/libs/jibber-jabber-posts-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["java","-jar","/home/gradle/src/build/libs/jibber-jabber-follows-0.0.1-SNAPSHOT.jar"]

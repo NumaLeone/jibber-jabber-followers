@@ -25,17 +25,16 @@ public class FollowService {
     }
 
     public void unfollowUser(Follow follow){
-        if(getFollowees(follow.getFollower()).contains(follow)){
-            followRepository.delete(follow);
+        if(!followRepository.existsById(follow.getId())){
+            throw new IllegalStateException(follow.getFollower() + " doesn't follow " + follow.getFollowee() +".");
         }
-
-        else {throw new IllegalStateException(follow.getFollower() + " doesn't follow " + follow.getFollowee() +".");}
+        followRepository.delete(follow);
     }
     public List<String> allFollowersByFollowee(String followee){
         return getFollowers(followee);
     }
-    public List<Follow> allFolloweeByFollowers(String follower){
-        return followRepository.findAllFollowByFollower(follower);
+    public List<String> allFolloweeByFollowers(String follower){
+        return getFollowees(follower);
     }
 
     public List<String> getFollowers(String followee){

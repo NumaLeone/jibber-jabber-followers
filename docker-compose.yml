@@ -16,7 +16,7 @@ services:
       DB_PORT: 5432
 
   postgres_followers_db:
-    container_name: postgres_followers_db
+    container_name: postgres_db_follows
     image: postgres:12
     ports:
           - 5432:5432

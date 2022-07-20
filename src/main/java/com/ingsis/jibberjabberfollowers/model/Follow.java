@@ -1,6 +1,7 @@
 package com.ingsis.jibberjabberfollowers.model;
 
 import javax.persistence.*;
+import java.util.UUID;
 
 @Entity
 @Table
@@ -17,30 +18,30 @@ public class Follow {
             generator = "follow_sequence"
     )
     private Long id;
-    private String followee;
-    private String follower;
+    private UUID followee;
+    private UUID follower;
 
     public Follow() {
     }
 
-    public Follow(String followee, String follower) {
+    public Follow(UUID follower, UUID followee) {
         this.followee = followee;
         this.follower = follower;
     }
 
-    public void setFollowee(String followee) {
+    public void setFollowee(UUID followee) {
         this.followee = followee;
     }
 
-    public void setFollower(String follower) {
+    public void setFollower(UUID follower) {
         this.follower = follower;
     }
 
-    public String getFollower() {
+    public UUID getFollower() {
         return follower;
     }
 
-    public String getFollowee() {
+    public UUID getFollowee() {
         return followee;
     }
 

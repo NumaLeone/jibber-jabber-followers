@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping(path = "v1/follow")
+@RequestMapping(path = "v1/follows")
 public class FollowController {
 
     private final FollowService followService;
@@ -27,12 +27,6 @@ public class FollowController {
     public void followUser(@PathVariable UUID followerId, @PathVariable UUID followeeId){
         followService.followUser(followerId,followeeId);
     }
-
-
-//    @PostMapping("/{followId}")
-//    public void follow(@Valid @PathVariable("followId") UUID userId) {
-//        followService.follow(userId);
-//    }
 
 
     @DeleteMapping("/user/{follower}/unfollow/{followee}")
